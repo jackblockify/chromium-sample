@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright 2024 The Chromium Authors
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Account-level passwords -->
+    <Preference
+        android:key="passwords_account"
+        android:title="@string/safety_check_passwords_safe" />
+
+    <!-- Update check -->
+    <Preference
+        android:key="update_check"
+        android:title="@string/safety_check_updates_title" />
+
+    <!-- Unused permissions -->
+    <Preference
+        android:key="permissions"
+        android:title="@string/safety_hub_permissions_ok_title" />
+
+    <!-- Notification review -->
+    <Preference
+        android:key="notifications_review"
+        android:title="@string/safety_hub_notifications_review_ok_title" />
+
+</PreferenceScreen>

@@ -1,0 +1,80 @@
+<style include="signin-shared tangible-sync-style-shared">
+  :host([use-updated-ui_]) {
+    color: var(--cr-primary-text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    min-width: 600px;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+  }
+
+  .main-container {
+    width: 100vw;
+    margin-block-start: auto;
+  }
+
+  .action-container {
+    align-items: flex-end;
+    box-sizing: border-box;
+    margin-block-start: auto;
+    width: 100vw;
+    flex-wrap: wrap-reverse;
+    max-width: 100%;
+  }
+
+  .action-container cr-button {
+    /* Reverts inherited pointer-events value from .action-container. */
+    pointer-events: all;
+  }
+
+  .tangible-sync-style #content-container {
+    position: relative;
+  }
+
+  .action-container #cancel-button {
+    font-weight: normal;
+  }
+
+  .tangible-sync-style-left-banner {
+    content: url(images/left-banner.svg);
+  }
+
+  .tangible-sync-style-right-banner {
+    content: url(images/right-banner.svg);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .tangible-sync-style-right-banner {
+      content: url(images/right-banner-dark.svg);
+    }
+
+    .tangible-sync-style-left-banner {
+      content: url(images/left-banner-dark.svg);
+    }
+  }
+</style>
+
+<template is="dom-if" if="[[useUpdatedUi_]]">
+  <div class="main-container tangible-sync-style">
+    <img class="tangible-sync-style-left-banner" alt="">
+    <img class="tangible-sync-style-right-banner" alt="">
+    <div id="content-container">
+      <managed-user-profile-notice-disclosure id="disclosure" title="[[title_]]"
+          subtitle="[[subtitle_]]" picture-url="[[pictureUrl_]]"
+          show-enterprise-badge="[[showEnterpriseBadge_]]">
+      </managed-user-profile-notice-disclosure>
+    </div>
+  </div>
+  <div class="action-container tangible-sync-style">
+    <cr-button id="proceed-button" class="action-button" on-click="onProceed_"
+        autofocus$="[[isModalDialog_]]" disabled="[[disableProceedButton_]]">
+      [[proceedLabel_]]
+    </cr-button>
+    <cr-button id="cancel-button" on-click="onCancel_"
+        hidden="[[!showCancelButton_]]">
+      $i18n{cancelLabel}
+    </cr-button>
+  </div>
+</template>
